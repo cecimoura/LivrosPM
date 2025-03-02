@@ -15,6 +15,8 @@ public class Livro {
         this.status=StatusLivro.DISPONIVEL;
     }
 
+
+
     public String getTitulo() {return titulo; }
     public void setTitulo(String titulo) {this.titulo = titulo; }
 

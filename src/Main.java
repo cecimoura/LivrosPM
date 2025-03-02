@@ -14,24 +14,31 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         //capturando os dados do alunos
-        System.out.println("\n=====Cadastro de Aluno=====");
+        System.out.println("\n=============================");
+        System.out.println("    Cadastro de Aluno");
+        System.out.println("==============================");
         System.out.println("Digite seu nome: ");
         String nome = scanner.nextLine();
 
         System.out.println("Digite seu RA: ");
         String RA = scanner.nextLine();
+
+        System.out.println("Digite seu curso: ");
+        String curso = scanner.nextLine();
         System.out.println("=============================");
 
+        //criando o Objeto aluno
+        Aluno aluno = new Aluno(nome, RA, curso);
+
+
         Livro livro1 = new Livro("A Cabeça do Santo", "Socorro Acioli");
-        Livro livro2 = new Livro();
+        Livro livro2 = new Livro("E não sobrou nenhum", "Agatha Christie");
 
-        livro2.setTitulo("E não sobrou nenhum");
-        livro2.setAutor("Agatha Christie");
-
-        System.out.println("\n Informações do Livro 1: ");
-        livro1.exibirInfoLivro();
-
-        System.out.println("\n Informações do Livro 2: ");
-        livro2.exibirInfoLivro();
+        //mostrando os livros disponíveis
+        System.out.println("\n=============================");
+        System.out.println("  Lista de Livros Disponíveis");
+        System.out.println("1. " +livro1.getTitulo());
+        System.out.println("2. " +livro2.getTitulo());
+        System.out.println("===============================");
     }
 }
