@@ -2,16 +2,25 @@ import livros.Livro; //Import da classe dentro do package
 import livros.StatusLivro; //import do enum StatusLivro
 import usuario.Aluno;
 
+import usuario.Usuario;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
 
-        //criando o aluno
-        Aluno aluno = new Aluno("Cecília de Moura", "12345", "ADS");
+        Scanner scanner = new Scanner(System.in);
 
-        //exibindo as infos
-        System.out.println("=====Informações do Aluno=====");
-        aluno.exibirInfoUsuario();
+        //capturando os dados do alunos
+        System.out.println("\n=====Cadastro de Aluno=====");
+        System.out.println("Digite seu nome: ");
+        String nome = scanner.nextLine();
+
+        System.out.println("Digite seu RA: ");
+        String RA = scanner.nextLine();
+        System.out.println("=============================");
 
         Livro livro1 = new Livro("A Cabeça do Santo", "Socorro Acioli");
         Livro livro2 = new Livro();
