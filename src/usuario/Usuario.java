@@ -1,4 +1,4 @@
-package livros;
+package usuario;
 
 public abstract class Usuario {
 
