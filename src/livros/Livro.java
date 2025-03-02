@@ -1,11 +1,5 @@
 package livros;
 
-
-public enum StatusLivro{
-    DISPONIVEL, EMPRESTADO
-}
-
-
 public class Livro {
     private String titulo;
     private String autor;
