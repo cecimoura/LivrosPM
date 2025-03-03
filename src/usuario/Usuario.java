@@ -3,22 +3,22 @@ package usuario;
 public abstract class Usuario {
 
     private String nome;
-    private String RA;
+    private String CPF;
 
     //construtor padrão
     public Usuario() {}
 
     //construtor parametrizado
-    public Usuario(String nome, String RA) {
+    public Usuario(String nome, String CPF) {
         this.nome = nome;
-        this.RA = RA;
+        this.CPF = CPF;
     }
 
     public String getNome() {return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
-    public String getRA() {return RA; }
-    public void setRA(String RA) { this.RA = RA; }
+    public String getCPF() {return CPF; }
+    public void setCPF(String CPF) { this.CPF = CPF; }
 
     //metodo abstrato que será implementado nas subclasses
     public abstract void exibirInfoUsuario();
