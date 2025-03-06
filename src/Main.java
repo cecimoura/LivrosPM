@@ -23,10 +23,15 @@ public class Main {
         // Criando o objeto leitor
         Leitor leitor = new Leitor(nome, CPF);
 
-        boolean continuar = true;
+        //livros disponiveis
+        livros.add(new Livro("A Cabeça do Santo","Socorro Acioli"));
+        livros.add(new Livro("E não sobrou nenhum","Agatha Christie"));
+        livros.add(new Livro("O Retrato de Dorian Gray","Oscar Wilde"));
+        livros.add(new Livro("A Metamorfose","Franz Kafka"));
 
+        boolean continuar = true;
         while (continuar) {
-            System.out.println("\n=============================");
+            System.out.println("\n========================");
             System.out.println("  Menu Principal");
             System.out.println("1. Visualizar Livros");
             System.out.println("2. Cadastrar Livro");
@@ -34,11 +39,11 @@ public class Main {
             System.out.println("4. Modificar Livro");
             System.out.println("5. Remover Livro");
             System.out.println("6. Sair");
-            System.out.println("=============================");
+            System.out.println("==========================");
 
             System.out.print("\nEscolha uma opção: ");
             while (!scanner.hasNextInt()) {
-                System.out.println("\n Entrada inválida! Digite um número.");
+                System.out.println("\n Opção inválida! Digite um número.");
                 scanner.next();
             }
             int opcao = scanner.nextInt();
@@ -81,7 +86,23 @@ public class Main {
                     System.out.println("\nOpção de Modificar Livro ainda não implementada.");
                     break;
                 case 5:
-                    System.out.println("\nOpção de Remover Livro ainda não implementada.");
+                  if(livros.isEmpty()) {
+                      System.out.println("\nNenhum livro cadastrado ainda para remover.");
+                      break;
+                  }
+                    System.out.println("\nLista de Livros:");
+                  for(int i=0;i<livros.size();i++) {
+                      System.out.println(i+1 + ". " + livros.get(i).getTitulo());
+                  }
+                    System.out.println("\nDigite o número do livro que deseja remover:");
+                  int escolha = scanner.nextInt();
+                  scanner.nextLine();
+                  if(escolha>0 && escolha<=livros.size()) {
+                      livros.remove(escolha-1);
+                      System.out.println("\nLivro removido com sucesso!");
+                  }else{
+                      System.out.println("\nOpção inválida, digite novamente.");
+                  }
                     break;
                 case 6:
                     System.out.println("\nSaindo do sistema...");
