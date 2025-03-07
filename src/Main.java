@@ -1,4 +1,5 @@
 import livros.Livro; // Import da classe dentro do package
+import livros.StatusLivro; //import do enum StatusLivro
 import usuario.Leitor;
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +7,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); //cria um objeto Scanner que permite a leitura de entradas do user via teclado.
         List<Livro> livros = new ArrayList<>();
 
         // Capturando os dados do leitor
@@ -24,10 +25,10 @@ public class Main {
         Leitor leitor = new Leitor(nome, CPF);
 
         //livros disponiveis
-        livros.add(new Livro("A Cabeça do Santo","Socorro Acioli"));
-        livros.add(new Livro("E não sobrou nenhum","Agatha Christie"));
-        livros.add(new Livro("O Retrato de Dorian Gray","Oscar Wilde"));
-        livros.add(new Livro("A Metamorfose","Franz Kafka"));
+        livros.add(new Livro("A Cabeça do Santo","Socorro Acioli", StatusLivro.DISPONIVEL));
+        livros.add(new Livro("E não sobrou nenhum","Agatha Christie", StatusLivro.DISPONIVEL));
+        livros.add(new Livro("O Retrato de Dorian Gray","Oscar Wilde", StatusLivro.DISPONIVEL));
+        livros.add(new Livro("A Metamorfose","Franz Kafka", StatusLivro.EMPRESTADO));
 
         boolean continuar = true;
         while (continuar) {
@@ -56,7 +57,7 @@ public class Main {
                     } else {
                         System.out.println("\nLista de Livros Disponíveis:");
                         for (int i = 0; i < livros.size(); i++) {
-                            System.out.println((i + 1) + ". " + livros.get(i).getTitulo());
+                            System.out.println((i + 1) + ". " + livros.get(i).getTitulo() + " - " + livros.get(i).getStatus());
                         }
 
                         System.out.print("\nDigite o número do livro para ver detalhes ou 0 para voltar: ");
@@ -75,7 +76,7 @@ public class Main {
                     String titulo = scanner.nextLine();
                     System.out.print("Digite o autor do livro: ");
                     String autor = scanner.nextLine();
-                    livros.add(new Livro(titulo, autor));
+                    livros.add(new Livro(titulo, autor, StatusLivro.DISPONIVEL));
                     System.out.println("\nLivro cadastrado com sucesso!");
                     break;
                 case 3:
