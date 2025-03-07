@@ -56,11 +56,13 @@ public class Main {
                     if (livros.isEmpty()) {
                         System.out.println("\nNenhum livro cadastrado ainda.");
                     } else {
-                        System.out.println("\nLista de Livros Disponíveis:");
+                        System.out.println("\n----------------------------------");
+                        System.out.println("  Lista de Livros Disponíveis:");
+                        System.out.println("----------------------------------");
                         for (int i = 0; i < livros.size(); i++) {
                             System.out.println((i + 1) + ". " + livros.get(i).getTitulo() + " - " + livros.get(i).getStatus());
                         }
-                    }
+                    }scanner.nextLine();
                     break;
                 case 2:
                     System.out.print("\nDigite o título do livro: ");
