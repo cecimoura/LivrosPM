@@ -140,9 +140,9 @@ public class Main {
      * Permite ao usuário cadastrar um novo livro na biblioteca.
      */
     private static void cadastrarLivro() {
-        System.out.print("\n✏ Digite o título do livro: ");
+        System.out.print("\n Digite o título do livro: ");
         String titulo = scanner.nextLine();
-        System.out.print("✏ Digite o autor do livro: ");
+        System.out.print(" Digite o autor do livro: ");
         String autor = scanner.nextLine();
         livros.add(new Livro(titulo, autor, StatusLivro.DISPONIVEL));
         System.out.println("\n✅ Livro cadastrado com sucesso!");
