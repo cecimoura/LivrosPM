@@ -3,7 +3,7 @@ package usuario;
 public class Leitor extends Usuario {
 
     public Leitor(String nome, String CPF) {
-        super(nome, CPF); // ✅ Chama o construtor da classe pai corretamente
+        super(nome, CPF); // Chama o construtor da classe pai corretamente
     }
 
     @Override
