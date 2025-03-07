@@ -28,4 +28,18 @@ public class Livro {
         System.out.println("Autor: " + this.getAutor());
         System.out.println("Status: " + this.getStatus()); // Exibir o status também
     }
+
+    public void emprestarLivro(){
+        if(this.status == StatusLivro.DISPONIVEL){
+            this.status = StatusLivro.EMPRESTADO;
+            System.out.println("Livro emprestado com sucesso!");
+        }else{
+            System.out.println("Este livro ja foi emprestado.");
+        }
+    }
+
+
+
+
+
 }
