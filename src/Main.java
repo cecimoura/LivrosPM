@@ -92,7 +92,7 @@ public class Main {
         System.out.println("\n-------------------------------------------");
         System.out.println("  SISTEMA DE GERENCIAMENTO DE BIBLIOTECA");
         System.out.println("-------------------------------------------");
-        System.out.println("1️- Visualizar Livros");
+        System.out.println("1️-  Visualizar Livros");
         System.out.println("2️-  Cadastrar Livro");
         System.out.println("3️-  Dados do Leitor");
         System.out.println("4️-  Empréstimo de Livro");
@@ -132,7 +132,7 @@ public class Main {
         System.out.println(" Lista de Livros:");
         System.out.println("-------------------");
         for (int i = 0; i < livros.size(); i++) {
-            System.out.println((i + 1) + ". " + livros.get(i).getTitulo() + " - " + livros.get(i).getStatus());
+            System.out.println((i + 1) + ". " + livros.get(i).getTitulo() + " - " + livros.get(i).getAutor() + "| " + livros.get(i).getStatus());
         }
     }
 
