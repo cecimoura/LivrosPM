@@ -148,11 +148,11 @@ public class Main {
      * Permite ao usuário cadastrar um novo livro na biblioteca.
      */
     private static void cadastrarLivro() {
-        System.out.print("\n Digite o título do livro: ");
+        System.out.print("\n Digite o título do livro: ");  // Solicita ao usuário que digite o título do livro
         String titulo = scanner.nextLine();
         System.out.print(" Digite o autor do livro: ");
         String autor = scanner.nextLine();
-        livros.add(new Livro(titulo, autor, StatusLivro.DISPONIVEL));
+        livros.add(new Livro(titulo, autor, StatusLivro.DISPONIVEL)); // Adiciona um novo livro à lista com status DISPONIVEL
         System.out.println("\n✅ Livro cadastrado com sucesso!");
     }
 
@@ -161,7 +161,7 @@ public class Main {
      */
     private static void visualizarDadosLeitor() {
         System.out.println("\n📖 Dados do Leitor:");
-        leitor.exibirInfoUsuario();
+        leitor.exibirInfoUsuario(); // Chama o metodo da classe Leitor p exibir as informações do usuário
     }
 
     /**
@@ -171,9 +171,9 @@ public class Main {
      * Realiza o empréstimo de um livro, alterando seu status se disponível.
      */
     private static void emprestarLivro() {
-        if (livros.isEmpty()) {
+        if (livros.isEmpty()) { // Verifica se há livros cadastrados
             System.out.println("\nNão há livros disponíveis para empréstimo.");
-            return;
+            return;  // Sai do metodo caso não haja livros
         }
 
         System.out.println("\n----------------------------");
@@ -184,23 +184,25 @@ public class Main {
 
         for (int i = 0; i < livros.size(); i++) {
             Livro livro = livros.get(i);
-            if (livro.getStatus() == StatusLivro.DISPONIVEL) {
+            if (livro.getStatus() == StatusLivro.DISPONIVEL) { // Exibe apenas livros disponíveis
                 System.out.printf("%-5d %-40s %-30s %-15s%n", i + 1, livro.getTitulo(), livro.getAutor(), "Disponível");
             }
         }
 
         System.out.println("---------------------------------------------------------------");
 
+        // Solicita ao usuario que escolha um livro para emprestar
         System.out.print("\n👉 Digite o número do livro que deseja pegar emprestado ou 0 para voltar: ");
         int escolhaLivro = lerOpcaoUsuario();
 
+        // Verifica se o número escolhido está dentro do intervalo válido
         if (escolhaLivro > 0 && escolhaLivro <= livros.size()) {
-            Livro livroSelecionado = livros.get(escolhaLivro - 1);
+            Livro livroSelecionado = livros.get(escolhaLivro - 1); // Obtém o livro correspondente à escolha do usuario
             if (livroSelecionado.getStatus() == StatusLivro.DISPONIVEL) {
-                livroSelecionado.emprestarLivro();
+                livroSelecionado.emprestarLivro(); // Chama o metodo que altera o status do livro para EMPRESTADO
                 System.out.println("\n✅ Livro emprestado com sucesso!");
             } else {
-                System.out.println("\n⚠ Este livro já está emprestado.");
+                System.out.println("\n⚠ Este livro já está emprestado."); // Informa que o livro não pode ser emprestado novamente
             }
         } else if (escolhaLivro != 0) {
             System.out.println("\n⚠ Opção inválida! Digite novamente.");
