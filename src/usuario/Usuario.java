@@ -3,16 +3,16 @@ package usuario;
 
 public abstract class Usuario {
 
-    private String nome;
-    private String CPF;
+    private String nome; // Atributo privado que armazena o nome do usuario
+    private String CPF; // Atributo privado que armazena o CPF do usuario
 
-    //construtor padrão
+    //construtor padrão sem parâmetros, para criar um usuario sem inicializar os atributos
     public Usuario() {}
 
     //construtor parametrizado para inicializar o usuario com nome e cpf
     public Usuario(String nome, String CPF) {
-        this.nome = nome;
-        this.CPF = CPF;
+        this.nome = nome; // Inicializa o atributo nome com o valor passado como parâmetro
+        this.CPF = CPF; // Inicializa o atributo CPF com o valor passado como parâmetro
     }
 
     //metodos getters para acessar os dados privados
