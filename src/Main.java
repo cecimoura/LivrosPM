@@ -124,17 +124,25 @@ public class Main {
      */
     private static void listarLivros() {
         if (livros.isEmpty()) {
-            System.out.println("\n Nenhum livro cadastrado ainda.");
+            System.out.println("\nNenhum livro cadastrado ainda.");
             return;
         }
 
-        System.out.println("\n-------------------");
-        System.out.println(" Lista de Livros:");
-        System.out.println("-------------------");
+        System.out.println("\n----------------------------");
+        System.out.println("   Lista de Livros:");
+        System.out.println("----------------------------");
+        System.out.printf("%-5s %-40s %-30s %-15s%n", "ID", "Título", "Autor", "Status");
+        System.out.println("---------------------------------------------------------------");
+
         for (int i = 0; i < livros.size(); i++) {
-            System.out.println((i + 1) + ". " + livros.get(i).getTitulo() + " - " + livros.get(i).getAutor() + "| " + livros.get(i).getStatus());
+            Livro livro = livros.get(i);
+            String status = livro.getStatus() == StatusLivro.DISPONIVEL ? "Disponível" : "Emprestado";
+            System.out.printf("%-5d %-40s %-30s %-15s%n", i + 1, livro.getTitulo(), livro.getAutor(), status);
         }
+
+        System.out.println("---------------------------------------------------------------");
     }
+
 
     /**
      * Permite ao usuário cadastrar um novo livro na biblioteca.
@@ -152,7 +160,7 @@ public class Main {
      * Exibe as informações do leitor cadastrado no sistema.
      */
     private static void visualizarDadosLeitor() {
-        System.out.println("\n📖 Dados do Leitor:");
+        System.out.println("\n Dados do Leitor:");
         leitor.exibirInfoUsuario();
     }
 
@@ -161,15 +169,27 @@ public class Main {
      */
     private static void emprestarLivro() {
         if (livros.isEmpty()) {
-            System.out.println("\n Não há livros disponíveis para empréstimo.");
+            System.out.println("\nNão há livros disponíveis para empréstimo.");
             return;
         }
 
-        System.out.println("\n Livros Disponíveis para Empréstimo:");
+        System.out.println("\n----------------------------");
+        System.out.println("   Livros Disponíveis para Empréstimo:");
+        System.out.println("----------------------------");
+        System.out.printf("%-5s %-40s %-30s %-15s%n", "ID", "Título", "Autor", "Status");
+        System.out.println("---------------------------------------------------------------");
+
+        // Exibe os livros disponíveis para empréstimo
         for (int i = 0; i < livros.size(); i++) {
-            System.out.println((i + 1) + ". " + livros.get(i).getTitulo() + " - " + livros.get(i).getStatus());
+            Livro livro = livros.get(i);
+            if (livro.getStatus() == StatusLivro.DISPONIVEL) {
+                System.out.printf("%-5d %-40s %-30s %-15s%n", i + 1, livro.getTitulo(), livro.getAutor(), "Disponível");
+            }
         }
 
+        System.out.println("---------------------------------------------------------------");
+
+        // Solicita ao usuário escolher um livro para empréstimo
         System.out.print("\n👉 Digite o número do livro que deseja pegar emprestado ou 0 para voltar: ");
         int escolhaLivro = lerOpcaoUsuario();
 
@@ -185,6 +205,7 @@ public class Main {
             System.out.println("\n⚠ Opção inválida! Digite novamente.");
         }
     }
+
 
     /**
      * Permite ao usuário remover um livro da biblioteca.

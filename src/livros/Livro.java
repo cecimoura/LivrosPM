@@ -1,45 +1,69 @@
 package livros;
 
-public class Livro {
+public class Livro implements Emprestimo, InfoLivro {
     private String titulo;
     private String autor;
-    private StatusLivro status; // Adicionado atributo status
+    private StatusLivro status; // Atributo status
 
     // Construtor para criar um livro com título, nome do autor e status
-    public Livro(String titulo, String autor, StatusLivro status){
+    public Livro(String titulo, String autor, StatusLivro status) {
         this.titulo = titulo;
         this.autor = autor;
         this.status = status;
     }
 
     // Métodos getters e setters
-    public String getTitulo() { return titulo; }
-    public void setTitulo(String titulo) { this.titulo = titulo; }
-
-    public String getAutor() { return autor; }
-    public void setAutor(String autor) { this.autor = autor; }
-
-    public StatusLivro getStatus() { return status; } // Agora retorna o status
-    public void setStatus(StatusLivro status) { this.status = status; }
-
-    // Exibir informações do livro
-    public void exibirInfoLivro(){
-        System.out.println("Título: " + this.getTitulo());
-        System.out.println("Autor: " + this.getAutor());
-        System.out.println("Status: " + this.getStatus()); // Exibir o status também
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void emprestarLivro(){
-        if(this.status == StatusLivro.DISPONIVEL){
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
+
+    public StatusLivro getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusLivro status) {
+        this.status = status;
+    }
+
+    // Implementação do metodo exibirInfoLivro da interface InfoLivro
+    @Override
+    public void exibirInfoLivro() {
+        System.out.println("Título: " + this.getTitulo());
+        System.out.println("Autor: " + this.getAutor());
+        System.out.println("Status: " + this.getStatus());
+    }
+
+    // Implementação do metodo emprestarLivro da interface Emprestimo
+    @Override
+    public void emprestarLivro() {
+        if (this.status == StatusLivro.DISPONIVEL) {
             this.status = StatusLivro.EMPRESTADO;
             System.out.println("Livro emprestado com sucesso!");
-        }else{
-            System.out.println("Este livro ja foi emprestado.");
+        } else {
+            System.out.println("Este livro já foi emprestado.");
         }
     }
 
-
-
-
-
+    // Implementação do metodo devolverLivro da interface Emprestimo
+    @Override
+    public void devolverLivro() {
+        if (this.status == StatusLivro.EMPRESTADO) {
+            this.status = StatusLivro.DISPONIVEL;
+            System.out.println("Livro devolvido com sucesso!");
+        } else {
+            System.out.println("Este livro não está emprestado.");
+        }
+    }
 }
