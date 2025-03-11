@@ -213,7 +213,7 @@ public class Main {
     /**
      * Permite ao usuário remover um livro da biblioteca.
      */
-    private static void removerLivro() {
+    private static void removerLivro() { // Verifica se há livros cadastrados antes de permitir a remoção
         if (livros.isEmpty()) {
             System.out.println("\n📭 Nenhum livro cadastrado ainda para remover.");
             return;
@@ -224,6 +224,7 @@ public class Main {
             System.out.println((i + 1) + ". " + livros.get(i).getTitulo());
         }
 
+        // Solicita ao usuário que escolha um livro para remover
         System.out.print("\n🗑 Digite o número do livro que deseja remover ou 0 para voltar: ");
         int escolha = lerOpcaoUsuario();
 
@@ -238,27 +239,30 @@ public class Main {
     /**
      * Permite ao usuário devolver um livro, alterando seu status de emprestado para disponível.
      */
-    private static void devolverLivro() {
+    private static void devolverLivro() { // Verifica se há livros cadastrados antes de permitir a devolução
         if (livros.isEmpty()) {
             System.out.println("\nNão há livros cadastrados no sistema.");
             return;
         }
 
+        // Exibe a lista de livros emprestados
         System.out.println("\n----------------------------");
         System.out.println("   Livros Emprestados:");
         System.out.println("----------------------------");
         System.out.printf("%-5s %-40s %-30s %-15s%n", "ID", "Título", "Autor", "Status");
         System.out.println("---------------------------------------------------------------");
 
-        boolean livrosEmprestados = false;
-        for (int i = 0; i < livros.size(); i++) {
+        boolean livrosEmprestados = false; // Flag para verificar se há livros emprestados
+
+        for (int i = 0; i < livros.size(); i++) { // Percorre a lista de livros e exibe apenas os que estão emprestados
             Livro livro = livros.get(i);
             if (livro.getStatus() == StatusLivro.EMPRESTADO) {
                 System.out.printf("%-5d %-40s %-30s %-15s%n", i + 1, livro.getTitulo(), livro.getAutor(), "Emprestado");
-                livrosEmprestados = true;
+                livrosEmprestados = true; // Indica que há pelo menos um livro emprestado
             }
         }
 
+        // Se nenhum livro estiver emprestado, exibe a mensagem e encerra o metodo
         if (!livrosEmprestados) {
             System.out.println("\nNão há livros emprestados no momento.");
             return;
@@ -266,16 +270,20 @@ public class Main {
 
         System.out.println("---------------------------------------------------------------");
 
+        // Solicita ao usuário que escolha um livro para devolver
         System.out.print("\n👉 Digite o número do livro que deseja devolver ou 0 para voltar: ");
         int escolhaLivro = lerOpcaoUsuario();
 
+        // Verifica se a escolha do usuário é válida dentro da lista de livros
         if (escolhaLivro > 0 && escolhaLivro <= livros.size()) {
             Livro livroSelecionado = livros.get(escolhaLivro - 1);
+
+            // Verifica se o livro realmente está emprestado antes de permitir a devolução
             if (livroSelecionado.getStatus() == StatusLivro.EMPRESTADO) {
-                livroSelecionado.setStatus(StatusLivro.DISPONIVEL);
+                livroSelecionado.setStatus(StatusLivro.DISPONIVEL); // Atualiza o status do livro para disponível
                 System.out.println("\n✅ Livro devolvido com sucesso!");
             } else {
-                System.out.println("\n⚠ Este livro não está emprestado.");
+                System.out.println("\n⚠ Este livro não está emprestado."); // Mensagem caso o livro já esteja disponível
             }
         } else if (escolhaLivro != 0) {
             System.out.println("\n⚠ Opção inválida! Digite novamente.");
