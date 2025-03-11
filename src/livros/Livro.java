@@ -1,9 +1,10 @@
 package livros;
 
+// A classe 'Livro' implementa duas interfaces: Emprestimo e InfoLivro
 public class Livro implements Emprestimo, InfoLivro {
     private String titulo;
     private String autor;
-    private StatusLivro status; // Atributo status
+    private StatusLivro status; // Atributo status do livro, disponivel ou emprestado
 
     // Construtor para criar um livro com título, nome do autor e status
     public Livro(String titulo, String autor, StatusLivro status) {
@@ -18,15 +19,15 @@ public class Livro implements Emprestimo, InfoLivro {
     }
 
     public void setTitulo(String titulo) {
-        this.titulo = titulo;
+        this.titulo = titulo; // Define o título do livro
     }
 
     public String getAutor() {
-        return autor;
+        return autor; // Retorna o nome do autor
     }
 
     public void setAutor(String autor) {
-        this.autor = autor;
+        this.autor = autor; // Define o autor do livro
     }
 
     public StatusLivro getStatus() {
@@ -34,7 +35,7 @@ public class Livro implements Emprestimo, InfoLivro {
     }
 
     public void setStatus(StatusLivro status) {
-        this.status = status;
+        this.status = status; // Define o status do livro
     }
 
     // Implementação do metodo exibirInfoLivro da interface InfoLivro
