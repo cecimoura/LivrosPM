@@ -25,37 +25,37 @@ public class Main {
 
             // Estrutura de decisão para processar a opção do usuario
             switch (opcao) {
-                case 1 -> {
+                case 1 -> { //case q lista os livros
                     listarLivros();
                     System.out.println("\nPressione Enter para continuar...");
                     scanner.nextLine(); // Aguarda o usuario pressionar Enter
                 }
-                case 2 -> {
+                case 2 -> { //case p cadastrar os livros
                     cadastrarLivro();
                     System.out.println("\nPressione Enter para continuar...");
                     scanner.nextLine();
                 }
-                case 3 -> {
+                case 3 -> { //case p mostrar as infos do user
                     visualizarDadosLeitor();
                     System.out.println("\nPressione Enter para continuar...");
                     scanner.nextLine();
                 }
-                case 4 -> {
+                case 4 -> { //case p realizar emprestimo de livro
                     emprestarLivro();
                     System.out.println("\nPressione Enter para continuar...");
                     scanner.nextLine();
                 }
-                case 5 -> {
+                case 5 -> { //case p remover o livro
                     removerLivro();
                     System.out.println("\nPressione Enter para continuar...");
                     scanner.nextLine();
                 }
                 case 6 -> {
-                    devolverLivro();  // Opção para devolver livro
+                    devolverLivro();  // case com a Opção de devolver livro
                     System.out.println("\nPressione Enter para continuar...");
                     scanner.nextLine();
                 }
-                case 7 -> {
+                case 7 -> { //case p sair do sistema
                     System.out.println("\n👋 Saindo do sistema... Obrigado por usar a biblioteca!");
                     continuar = false;
                 }
@@ -113,14 +113,14 @@ public class Main {
      * @return número da opção escolhida
      */
     private static int lerOpcaoUsuario() {
-        while (true) {
-            if (scanner.hasNextInt()) {
-                int opcao = scanner.nextInt();
+        while (true) { // Loop infinito até o usuário fornecer uma entrada válida
+            if (scanner.hasNextInt()) { // Verifica se a próxima entrada é um número inteiro
+                int opcao = scanner.nextInt(); // Lê o número inteiro digitado pelo usuário
                 scanner.nextLine(); // Limpa o buffer
-                return opcao;
+                return opcao; //Retorna a opção escolhida
             } else {
-                System.out.print("⚠ Entrada inválida! Digite um número: ");
-                scanner.next();
+                System.out.print("⚠ Entrada inválida! Digite um número: "); //mensagem de erro
+                scanner.next(); // Descarta a entrada inválida e continua o loop
             }
         }
     }
@@ -129,7 +129,7 @@ public class Main {
      * Exibe a lista de livros cadastrados no sistema.
      */
     private static void listarLivros() {
-        if (livros.isEmpty()) {
+        if (livros.isEmpty()) {  // Verifica se a lista de livros está vazia
             System.out.println("\n Nenhum livro cadastrado ainda.");
             return;
         }
@@ -139,7 +139,7 @@ public class Main {
         System.out.println("-------------------");
         System.out.printf("%-5s %-40s %-30s %-15s%n", "ID", "Título", "Autor", "Status");
         System.out.println("---------------------------------------------------------------");
-        for (int i = 0; i < livros.size(); i++) {
+        for (int i = 0; i < livros.size(); i++) { // Percorre a lista de livros e exibe cada um formatado corretamente
             System.out.printf("%-5d %-40s %-30s %-15s%n", i + 1, livros.get(i).getTitulo(), livros.get(i).getAutor(), livros.get(i).getStatus());
         }
     }
