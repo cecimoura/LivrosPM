@@ -1,6 +1,6 @@
 package livros;
 
-// A classe 'Livro' implementa duas interfaces: Emprestimo e InfoLivro
+// A classe Livro implementa duas interfaces: Emprestimo e InfoLivro
 public class Livro implements Emprestimo, InfoLivro {
     private String titulo;
     private String autor;
