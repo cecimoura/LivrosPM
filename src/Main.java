@@ -1,10 +1,10 @@
-import livros.Livro;
-import livros.StatusLivro;
-import usuario.Leitor;
+import livros.Livro; // Importa a classe 'Livro' do pacote 'livros'
+import livros.StatusLivro; // Importa a enumeração 'StatusLivro' do pacote 'livros'
+import usuario.Leitor; // Importa a classe 'Leitor' do pacote 'usuario'
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.ArrayList; // Importa a classe 'ArrayList' da biblioteca Java para armazenar uma lista de objetos
+import java.util.List; // Importa a interface 'List' para definir uma lista de objetos
+import java.util.Scanner;  // Importa a classe 'Scanner' para ler a entrada do usuário no console
 
 public class Main {
     // Scanner para entrada do usuário
