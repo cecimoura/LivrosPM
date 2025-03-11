@@ -15,7 +15,7 @@ public class Main {
     private static Leitor leitor;
 
     public static void main(String[] args) {
-        cadastrarLeitor(); // Cadastra os dados do usuário
+        cadastrarLeitor(); // Cadastra os dados do usuario
         carregarLivrosIniciais(); // Adiciona alguns livros de exemplo
 
         boolean continuar = true;
@@ -23,12 +23,12 @@ public class Main {
             exibirMenu(); // Exibe o menu principal
             int opcao = lerOpcaoUsuario(); // Lê a opção escolhida
 
-            // Estrutura de decisão para processar a opção do usuário
+            // Estrutura de decisão para processar a opção do usuario
             switch (opcao) {
                 case 1 -> {
                     listarLivros();
                     System.out.println("\nPressione Enter para continuar...");
-                    scanner.nextLine(); // Aguarda o usuário pressionar Enter
+                    scanner.nextLine(); // Aguarda o usuario pressionar Enter
                 }
                 case 2 -> {
                     cadastrarLivro();
@@ -65,7 +65,7 @@ public class Main {
      */
     private static void cadastrarLeitor() {
         System.out.println("\n---------------------------");
-        System.out.println("    📖 Cadastro de Leitor ");
+        System.out.println("     Cadastro de Leitor ");
         System.out.println("---------------------------");
         System.out.print("Digite seu nome: ");
         String nome = scanner.nextLine();
@@ -90,7 +90,7 @@ public class Main {
      */
     private static void exibirMenu() {
         System.out.println("\n-------------------------------------------");
-        System.out.println(" 📚 SISTEMA DE GERENCIAMENTO DE BIBLIOTECA");
+        System.out.println("  SISTEMA DE GERENCIAMENTO DE BIBLIOTECA");
         System.out.println("-------------------------------------------");
         System.out.println("1️- Visualizar Livros");
         System.out.println("2️-  Cadastrar Livro");
