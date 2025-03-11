@@ -48,18 +48,19 @@ public class Livro implements Emprestimo, InfoLivro {
 
     // Implementação do metodo emprestarLivro da interface Emprestimo
     @Override
-    public void emprestarLivro() {
+    public void emprestarLivro() {  // Verifica se o livro está disponível para empréstimo
         if (this.status == StatusLivro.DISPONIVEL) {
             this.status = StatusLivro.EMPRESTADO;
             System.out.println("Livro emprestado com sucesso!");
         } else {
-            System.out.println("Este livro já foi emprestado.");
+            System.out.println("Este livro já foi emprestado."); // Caso o livro não esteja disponível, exibe uma mensagem de erro
         }
     }
 
     // Implementação do metodo devolverLivro da interface Emprestimo
-    @Override
+    @Override // A anotação @Override garante que seja implementado corretamente o metodo da interface.
     public void devolverLivro() {
+        // Verifica se o livro está emprestado
         if (this.status == StatusLivro.EMPRESTADO) {
             this.status = StatusLivro.DISPONIVEL;
             System.out.println("Livro devolvido com sucesso!");
