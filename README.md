@@ -14,6 +14,8 @@ e exibição de informações via menu interativo no console.
   *Cadastrar novos livros na biblioteca.
   *Modificar informações de um livro (em desenvolvimento).
   *Remover um livro da biblioteca.
+  *Realizar empréstimos de livros
+  *Realizar devolução dos livros
 
 -Menu interativo: Interface baseada em console, permitindo a navegação entre as opções.
 
