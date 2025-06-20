@@ -21,7 +21,7 @@ e exibição de informações via menu interativo no console.
 
 ---Tecnologias Utilizadas---
 -Java
--POO (Encapsulamento, Herança, Polimorfismo, Composição)
+-POO (Encapsulamento, Polimorfismo, Composição)
 -Collections (ArrayList)
 -Scanner para entrada de dados do usuário
 
