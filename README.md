@@ -1,7 +1,8 @@
 # 📚 Sistema de Gerenciamento de Biblioteca
 
 ## 📝 Descrição  
-Este é um sistema de gerenciamento de biblioteca desenvolvido em **Java**, utilizando conceitos de **Programação Orientada a Objetos (POO)**.  
+
+Este é um sistema de gerenciamento de biblioteca desenvolvido como parte do **Projeto Mensal 1 da disciplina de Java**, utilizando conceitos de **Programação Orientada a Objetos (POO)**.  
 O sistema permite o cadastro de leitores, gerenciamento de livros (cadastro, visualização, modificação e remoção) e exibição de informações via **menu interativo no console**.
 
 ## ⚙️ Funcionalidades
